@@ -121,9 +121,12 @@ venv.bak/
 /site
 
 # mypy
-.mypy_cache/
+.mypy_cache/ddd
 .dmypy.json
 dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Config Files
+config.toml
