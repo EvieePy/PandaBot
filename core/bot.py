@@ -14,6 +14,7 @@ import asyncpg
 import discord
 from discord.ext import commands
 
+from .ddragon import DDragon
 from .logs import Handler
 
 
@@ -49,6 +50,9 @@ class Bot(commands.Bot):
             await self.load_extension(module)
 
         logger.info(f'Loaded ({len(modules)}) modules.')
+
+        # Start the Data Dragon Downloader...
+        DDragon(bot=self, log=logger)
 
     async def on_ready(self) -> None:
         logger.info(f'Logged in as: {self.user} (ID: {self.user.id})')

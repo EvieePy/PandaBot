@@ -4,3 +4,8 @@ CREATE TABLE IF NOT EXISTS rooms(
     vid BIGINT,
     PRIMARY KEY (gid, cid)
 );
+
+
+CREATE TABLE IF NOT EXISTS ddragon(
+    version TEXT PRIMARY KEY
+);

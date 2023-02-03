@@ -11,3 +11,6 @@ level = 20
 
 [DATABASE]
 dsn = "postgres://user:password@localhost:5432/database"
+
+[DDRAGON]
+webhook = "WEBHOOK_URL"
