@@ -6,7 +6,6 @@ License, v. 2.0. If a copy of the MPL was not distributed with this
 file, You can obtain one at http://mozilla.org/MPL/2.0/.
 """
 import logging
-from logging.handlers import RotatingFileHandler
 
 from colorama import init, Fore, Back, Style
 
@@ -62,14 +61,6 @@ class Handler(logging.Handler):
 
         self._level = level
         self._formatter: Formatter = Formatter()
-
-        discord_logger: logging.Logger = logging.getLogger('discord')
-        discord_logger.setLevel(logging.DEBUG)
-
-        self.rotating = RotatingFileHandler('logs/bot.log', encoding='utf-8', maxBytes=1024 * 1024 * 32)
-        self.rotating.setFormatter(self._formatter)
-
-        discord_logger.addHandler(self.rotating)
 
     def emit(self, record: logging.LogRecord) -> None:
         if record.levelno >= self._level:
