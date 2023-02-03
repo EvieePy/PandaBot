@@ -8,3 +8,6 @@ bot = ""
 # 10 = DEBUG
 [LOGGING]
 level = 20
+
+[DATABASE]
+dsn = "postgres://user:password@localhost:5432/database"
