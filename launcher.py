@@ -14,8 +14,8 @@ import core
 
 
 async def run() -> None:
-    async with aiohttp.ClientSession() as session:
-        async with core.Bot(session=session) as bot:
+    async with aiohttp.ClientSession() as session, asyncpg.create_pool(core.config['DATABASE']['dsn']) as pool:
+        async with core.Bot(session=session, pool=pool) as bot:
             await bot.start(core.config['TOKENS']['bot'])
 
 
